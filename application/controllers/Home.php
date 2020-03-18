@@ -8,6 +8,7 @@ class Home extends CI_Controller {
 		$data['judul']='Home';
 		$this->load->view('template/header',$data);
 		$this->load->view('template/sidebar');
+		$this->load->view('template/topbar',$data);
 		$this->load->view('home/index');
 		$this->load->view('template/footer');
 	}
