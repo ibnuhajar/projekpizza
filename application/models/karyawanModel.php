@@ -8,6 +8,8 @@ class karyawanModel extends CI_model
 		return $this->db->get('slip_gaji')->result_array();
 	}
 
+	
+
 }
 
 
