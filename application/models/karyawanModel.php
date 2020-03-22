@@ -8,7 +8,16 @@ class karyawanModel extends CI_model
 		return $this->db->get('slip_gaji')->result_array();
 	}
 
-	
+	public function hapusKaryawan($no)
+	{
+		$this->db->where('no', $no) ;
+		$this->db->delete('slip_gaji');
+	}
+
+	public function ubahKaryawan()
+	{
+		
+	}
 
 }
 

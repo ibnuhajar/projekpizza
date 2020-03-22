@@ -1,9 +1,16 @@
 	<!-- Begin Page Content -->
 	<div class="container-fluid">
-
+	<h1 class="display-4">Welcome </h1>
 	<!-- Page Heading -->
 	<div class="jumbotron bg-white">
-		<h1 class="display-4">Welcome </h1>
+
+	<!-- section insert -->
+	
+	<a href="<?=base_url(); ?>/Slip/insert" class="badge badge-success">
+	Add Item
+	</a>
+
+
 		<table class="table table-bordered">
 		<thead class="thead-dark">
 			<tr>
@@ -24,7 +31,7 @@
 			<td>Rp.<?= $k['rp']; ?></td>
 			<td>
 				<a href="#" class="badge badge-primary ">Edit</a>&nbsp; |&nbsp;
-				<a href="#" class="badge badge-danger">Hapus</a>
+				<a href="<?=base_url(); ?>/Slip/delete/<?= $k['no']; ?>" class="badge badge-danger">Hapus</a>
 			</td>
 			</tr>
 			<?php $i++; ?>

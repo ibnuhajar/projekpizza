@@ -25,9 +25,10 @@ class Slip extends CI_Controller {
 
 	}
 	
-	public function delete()
+	public function delete($no)
 	{
-		
+		$this->karyawanModel->hapusKaryawan($no);
+		redirect('Slip');
 	}
 
 	

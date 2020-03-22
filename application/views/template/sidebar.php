@@ -27,7 +27,7 @@
 
   <!-- Nav Item - Managemen user -->
   <li class="nav-item">
-	<a class="nav-link" href="<?=base_url('Home/index'); ?>">
+	<a class="nav-link" href="">
 	<i class="fas fa-users-cog"></i>
 	  <span>Managemen User</span></a>
   </li>
@@ -37,7 +37,7 @@
 
   <!-- Nav Item - Slip gaji -->
   <li class="nav-item">
-	<a class="nav-link" href="<?=base_url('Home/index'); ?>">
+	<a class="nav-link" href="<?=base_url('Slip/index'); ?>">
 	  <i class="fas fa-fw fa-table"></i>
 	  <span>Slip Gaji</span></a>
   </li>
