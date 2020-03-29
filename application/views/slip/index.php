@@ -27,7 +27,7 @@
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
-		<di class="modal-body">
+		<div class="modal-body">
 
 		<!-- section form modal -->
 	<form action="" method="post">

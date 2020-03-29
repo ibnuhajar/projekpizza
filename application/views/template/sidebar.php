@@ -27,7 +27,7 @@
 
   <!-- Nav Item - Managemen user -->
   <li class="nav-item">
-	<a class="nav-link" href="">
+	<a class="nav-link" href="<?=base_url('Manage/index'); ?>">
 	<i class="fas fa-users-cog"></i>
 	  <span>Managemen User</span></a>
   </li>
