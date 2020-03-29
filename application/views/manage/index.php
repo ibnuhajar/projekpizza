@@ -1,9 +1,4 @@
-<!-- Begin Page Content -->
 <div class="container-fluid">
-		
-
-	
-	<div class="container-fluid">
 
 			<!-- DataTales -->
 			<div class="card shadow mb-4">
@@ -54,9 +49,3 @@
           </div>
 
         </div>
-        <!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
-
-
