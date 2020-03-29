@@ -125,11 +125,10 @@
 	<div class="form-group mr-sm-2 pr-2 mb-2">
     <label for="digital" name="digital">Digital Signatur</label>
     <input type="text" class="form-control" name="digatal" id="digital" placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxx">
-  </div>
-  <button type="submit" class="btn btn-success mb-1">Enkripsi</button>
+	</div>
+	<button type="submit" class="btn btn-success mb-1">Enkripsi</button>
 </form>
 	
-
 <!-- end form modal -->
 		<div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -138,19 +137,19 @@
 		</div>
 	</div>
 	</div>
-
-	
+        
+	</div>
 	<div class="container-fluid">
 
 <!-- DataTales -->
 <div class="card shadow mb-4">
 <div class="card-header py-3">
-	<h6 class="m-0 font-weight-bold text-primary">Users</h6>
+	<h6 class="m-0 font-weight-bold text-primary">Slip Gaji</h6>
 </div>
 <div class="card-body">
   <div class="table-responsive">
 	  <!-- id="dataTable" -->
-	<table class="table table-bordered"  width="100%" cellspacing="0">
+	<table class="table table-bordered " id="dataTable"  width="100%" cellspacing="0">
 	  <thead>
 			<tr>
 				<th>No</th>
@@ -191,9 +190,7 @@
 </div>
 
 </div>
-
-        <!-- /.container-fluid -->
-	</div>
+<!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
 
