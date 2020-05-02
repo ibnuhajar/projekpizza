@@ -11,8 +11,9 @@ class Manage extends CI_Controller {
 
 	public function index()
 	{
-		$data['judul']='Home';
-		$data['karyawan']=$this->karyawanModel->getAllKaryawan();
+		$data['judul'] 		= 'Home';
+		$data['user']  		= $this->db->get_where('user', ['username'=> $this->session->userdata('username')])->row_array();
+		$data['karyawan']	= $this->manageModel->getAllUser();
 		$this->load->view('template/header',$data);
 		$this->load->view('template/sidebar');
 		$this->load->view('template/topbar',$data);
@@ -20,14 +21,14 @@ class Manage extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function update()
+	public function insert()
 	{
-
+		
 	}
 	
-	public function delete($no)
+	public function delete($id)
 	{
-		$this->karyawanModel->hapusKaryawan($no);
+		$this->manageModel->hapusUser($id);
 		redirect('Slip');
 	}
 

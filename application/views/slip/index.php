@@ -2,6 +2,7 @@
 	<div class="container-fluid">
 		<!-- section insert -->
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<?= $this->session->flashdata('massage'); ?>
 			<h1 class="h3 mb-0 text-gray-800">Welcome</h1>
 
 			<!-- Button trigger modal -->
@@ -30,11 +31,12 @@
 		<div class="modal-body">
 
 		<!-- section form modal -->
-	<form action="" method="post">
+	<form  method="post" action="">
 	<div class="form-row">
 		<div class="form-group col-md-6">
 			<label name="no" for="no">No</label>
 			<input type="text" class="form-control" name="no" id="no" placeholder="Nomer">
+			<?= form_error('no','<small class="text-danger pl-3">', '</small>'); ?>
 		</div>
 		
 		<div class="form-group col-md-6">
@@ -47,6 +49,7 @@
 					<option>Analys</option>
 					<option>Programer</option>
 				</select>
+				<?= form_error('bagian','<small class="text-danger pl-3">', '</small>'); ?>
 		</div>
 	</div>
 
@@ -54,6 +57,8 @@
 		<div class="form-group col-md-6">
 			<label name="nip" for="nip">Nip</label>
 			<input type="text" class="form-control" name="nip" id="nip" placeholder="Nip">
+			<?= form_error('nip','<small class="text-danger pl-3">', '</small>'); ?>
+
 		</div>
 		<div class="form-group col-md-6">
 			<label name="golongan" for="golongan">Golongan</label>
@@ -65,6 +70,7 @@
 					<option>B5</option>
 					<option>B6</option>
 				</select>
+				<?= form_error('golongan','<small class="text-danger pl-3">', '</small>'); ?>
 		</div>
 	</div>
 
@@ -72,15 +78,18 @@
 		<div class="form-group col-md-6">
 		<label name="nama" for="nama">Nama</label>
 		<input type="text" class="form-control" name="nama" id="nama" placeholder="Nama">
+		<?= form_error('nama','<small class="text-danger pl-3">', '</small>'); ?>
 		</div>
 		<div class="form-group col-md-6">
 		<label name="uang" for="uang">Rp.</label>
 		<input type="text" class="form-control" name="uang" id="uang" placeholder="Rp.">
+		<?= form_error('uang','<small class="text-danger pl-3">', '</small>'); ?>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="gaji" name="gaji">Gaji untuk Bulanan</label>
 		<input type="text" class="form-control" name="gaji" id="gaji" placeholder="Rp. ">
+		<?= form_error('gaji','<small class="text-danger pl-3">', '</small>'); ?>
 	</div>
 	
 	<!-- section potongan -->
@@ -89,30 +98,37 @@
 	<div class="form-group mt-1">
 		<label for="iuran" name="iuran">Iuran Kopri</label>
 		<input type="text" class="form-control" name="iuran" id="iuran" placeholder="Rp. ">
+		<?= form_error('iuran','<small class="text-danger pl-3">', '</small>'); ?>
 	</div>
 	<div class="form-group">
 		<label for="simpan" name="simpan">Simpanan Koperasi / Bantuan Kemalangan</label>
 		<input type="text" class="form-control" name="simpan" id="simpan" placeholder="Rp. ">
+		<?= form_error('simpan','<small class="text-danger pl-3">', '</small>'); ?>
 	</div>
 	<div class="form-group">
 		<label for="darma" name="darma">Dharma Wanita</label>
 		<input type="text" class="form-control" name="darma" id="darma" placeholder="Rp. ">
+		<?= form_error('darma','<small class="text-danger pl-3">', '</small>'); ?>
 	</div>
 	<div class="form-group">
 		<label for="asuransi" name="asuransi">Asuransi</label>
 		<input type="text" class="form-control" name="asuransi" id="asuransi" placeholder="Rp. ">
+		<?= form_error('asuransi','<small class="text-danger pl-3">', '</small>'); ?>
 	</div>
 	<div class="form-group">
 		<label for="bank" name="bank">Bank Ke</label>
 		<input type="text" class="form-control" name="bank" id="bank" placeholder="Nomor ">
+		<?= form_error('bank','<small class="text-danger pl-3">', '</small>'); ?>
 	</div>
 	<div class="form-group">
 		<label for="kpn" name="kpn">KPN Ke</label>
 		<input type="text" class="form-control" name="kpn" id="kpn" placeholder="Nomor ">
+		<?= form_error('kpn','<small class="text-danger pl-3">', '</small>'); ?>
 	</div>
 	<div class="form-group">
 		<label for="potong" name="potong">Jumlah Potongan</label>
 		<input type="text" class="form-control" name="potong" id="potong" placeholder="Rp. ">
+		<?= form_error('potong','<small class="text-danger pl-3">', '</small>'); ?>
 	</div>
 	<hr class="sidebar-divider my-2">
 
@@ -120,19 +136,21 @@
 	<div class="form-group">
 		<label for="seluruh" name="seluruh">Jumlah Penerimaan Bersih</label>
 		<input type="text" class="form-control" name="seluruh" id="seluruh" placeholder="Nomor ">
+		<?= form_error('seluruh','<small class="text-danger pl-3">', '</small>'); ?>
 	</div>
 
 	<div class="form-group mr-sm-2 pr-2 mb-2">
-    <label for="digital" name="digital">Digital Signatur</label>
-    <input type="text" class="form-control" name="digatal" id="digital" placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+    	<label for="digital" name="digital">Digital Signatur</label>
+    	<input type="text" class="form-control" name="digatal" id="digital" placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+		<?= form_error('digital','<small class="text-danger pl-3">', '</small>'); ?>
 	</div>
-	<button type="submit" class="btn btn-success mb-1">Enkripsi</button>
+	<a href="<?=base_url('Slip/insert'); ?>" class="btn btn-success mb-1">Enkripsi</a>
 </form>
 	
 <!-- end form modal -->
 		<div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<a href="<?=base_url(); ?>" type="button" class="btn btn-success">Save</a>
+			<a href="" class="btn btn-success">Save</a>
 		</div>
 		</div>
 	</div>

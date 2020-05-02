@@ -12,9 +12,9 @@
                 	<thead>
                     	<tr>
 							<th>No</th>
-							<th>Nip</th>
+							<th>Username</th>
 							<th>Nama</th>
-							<th>Gaji</th>
+							<th>Bagian</th>
 							<th>Action</th>	
                     	</tr>
                 	</thead>
@@ -23,9 +23,9 @@
 		<?php foreach ($karyawan as $k):?>
 			<tr>
 			<th scope="row"><?= $i; ?></th>
-			<td><?= $k['nip']; ?></td>
+			<td><?= $k['username']; ?></td>
 			<td><?= $k['nama']; ?></td>
-			<td>Rp.<?= $k['rp']; ?></td>
+			<td>Rp.<?= $k['bagian']; ?></td>
 			<td>
 				<a href="#" class="badge badge-primary ">Edit</a>&nbsp; |&nbsp;
 				<a href="<?=base_url(); ?>/Slip/delete/<?= $k['no']; ?>" class="badge badge-danger">Hapus</a>
