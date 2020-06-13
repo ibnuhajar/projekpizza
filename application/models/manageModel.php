@@ -8,16 +8,14 @@ class manageModel extends CI_model
 		return $this->db->get('managemen_user')->result_array();
 	}
 
-	// public function hapusUser($id)
-	// {
-	// 	$this->db->where('id', $id) ;
-	// 	$this->db->delete('managemen_user');
-	// }
+	public function setUser()
+	{
+		$data = [
 
-	// public function ubahUser()
-	// {
-		
-	// }
+			
+		];
+
+	}
 
 }
 
