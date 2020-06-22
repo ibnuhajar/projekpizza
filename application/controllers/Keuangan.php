@@ -16,8 +16,8 @@ class Keuangan extends CI_Controller
 		$data['user']  = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar2', $data);
-		$this->load->view('template/topbar', $data);
-		$this->load->view('home/index', $data);
+		$this->load->view('template/topbar2', $data);
+		$this->load->view('keuangan/index', $data);
 		$this->load->view('template/footer');
 	}
 }

@@ -1,11 +1,12 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Slip extends CI_Controller {
+class Slip extends CI_Controller
+{
 
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
-
 	}
 
 
@@ -13,11 +14,11 @@ class Slip extends CI_Controller {
 	{
 		$data['judul'] 		= 'Home';
 		$data['user']  		= $this->db->get_where('user',['username' => $this->session->userdata('username')])->row_array();
-		$data['karyawan']	= $this->karyawanModel->getAllKaryawan();
-		$this->load->view('template/header',$data);
-		$this->load->view('template/sidebar');
-		$this->load->view('template/topbar',$data);
-		$this->load->view('slip/index',$data);
+		// $data['karyawan']	= $this->karyawanModel->getAllKaryawan();
+		$this->load->view('template/header', $data);
+		$this->load->view('template/sidebar1');
+		$this->load->view('template/topbar1', $data);
+		$this->load->view('slip/index', $data);
 		$this->load->view('template/footer');
 	}
 
@@ -25,7 +26,7 @@ class Slip extends CI_Controller {
 	{
 		$data['judul'] 		= 'Home';
 		$data['user']  		= $this->db->get_where('user',['username' => $this->session->userdata('username')])->row_array();
-		$data['karyawan']	= $this->karyawanModel->getAllKaryawan();
+		// $data['karyawan']	= $this->karyawanModel->getAllKaryawan();
 
 		$this->form_validation->set_rules('nip', 'NIP', 'trim|required');
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
@@ -41,33 +42,26 @@ class Slip extends CI_Controller {
 		$this->form_validation->set_rules('kpn', 'Kpn', 'trim|required');
 		$this->form_validation->set_rules('seluruh', 'Seluruh', 'trim|required');
 		$this->form_validation->set_rules('digital', 'Digital', 'trim|required');
-		
-		if ($this->form_validation->run() == FALSE) 
-		{
-			$this->load->view('template/header',$data);
-			$this->load->view('template/sidebar');
-			$this->load->view('template/topbar',$data);
-			$this->load->view('slip/index',$data);
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('template/header', $data);
+			$this->load->view('template/sidebar1');
+			$this->load->view('template/topbar1', $data);
+			$this->load->view('slip/index', $data);
 			$this->load->view('template/footer');
-		} 
-		else 
-		{
+		} else {
 			echo "berhasil";
 			die;
 			// $this->karyawanModel->tambahKaryawan();
 			// $this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">Have ben deleted! </div>');
 			// redirect('Slip');
 		}
-		
 	}
-	
+
 	public function delete($no)
 	{
 		$this->karyawanModel->hapusKaryawan($no);
 		$this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">Have ben deleted! </div>');
 		redirect('Slip');
 	}
-
-	
-
 }

@@ -23,27 +23,28 @@ class Auth extends CI_Controller
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 
+			// mengambil data kedalam database
 			$user = $this->db->get_where('user', ['username' => $username])->row_array();
 
 			// pengecekan user
 			if ($user) {
 				// pengecekan password
 				if ($password == $user['password']) {
-					if ($user['role user']) {
+					// pengecekan role user
+					if ($user['role']) {
 						$data = [
 							'username' => $user['username']
-							// 'roleuser' => $user['roleuser']
 						];
-						switch ($user['role user']) {
-							case ($user['role user'] == 'admin'):
+						switch ($user['role']) {
+							case ($user['role'] == 'admin'):
 								$this->session->set_userdata($data);
 								redirect('Administrator');
 								break;
-							case ($user['role user'] == 'keuangan'):
+							case ($user['role'] == 'keuangan'):
 								$this->session->set_userdata($data);
 								redirect('Keuangan');
 								break;
-							case ($user['role user'] == 'pegawai'):
+							case ($user['role'] == 'pegawai'):
 								$this->session->set_userdata($data);
 								redirect('Pegawai');
 								break;

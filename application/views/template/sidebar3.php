@@ -5,7 +5,7 @@
 <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url('Home/index'); ?>">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url('Pegawai/index'); ?>">
 	<div class="sidebar-brand-icon rotate-n-15">
 	  <i class="fas fa-chart-pie"></i>
 	</div>
@@ -17,7 +17,7 @@
 
   <!-- Nav Item - Home -->
   <li class="nav-item">
-	<a class="nav-link" href="<?=base_url('Home/index'); ?>">
+	<a class="nav-link" href="<?=base_url('Pegawai/index'); ?>">
 	<i class="fas fa-home"></i>
 	  <span>HOME</span></a>
   </li>
@@ -47,7 +47,7 @@
 
 <!-- Nav Item - Validasi slip gaji -->
 <li class="nav-item">
-	  <a class="nav-link" href="<?=base_url('Home/index'); ?>">
+	  <a class="nav-link" href="<?=base_url('Pegawai/index'); ?>">
 	  <i class="fas fa-check-double"></i>
 		<span>Validasi Slip Gaji</span>
 	</a>
