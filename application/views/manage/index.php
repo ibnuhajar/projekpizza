@@ -60,7 +60,7 @@
 										<div class="form-group">
 											<label for="repassword">RePassword</label>
 											<input type="password" class="form-control" id="repassword" name="repassword">
-											<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
+											<?= form_error('repassword', '<small class="text-danger pl-3">', '</small>'); ?>
 										</div>
 								</div>
 
