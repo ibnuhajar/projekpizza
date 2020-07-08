@@ -51,13 +51,6 @@
 			}
 		}
 
-		public function delete($id)
-		{
-			$this->manageModel->hapusUser($id);
-			$this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">berhasil di hapus</div>');
-			redirect('ManageUser');
-		}
-
 		public function update($id)
 		{
 			$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
@@ -65,7 +58,7 @@
 			$this->form_validation->set_rules('username', 'Username', 'trim|required');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 			$this->form_validation->set_rules('repassword', 'Password', 'trim|required|matches[password]');
-			
+
 			if ($this->form_validation->run() == false) {
 				$data['judul'] 		= 'Administrator';
 				$data['user']  		= $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
@@ -82,5 +75,26 @@
 				$this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">berhasil di ubah</div>');
 				redirect('ManageUser');
 			}
+		}
+
+		public function delete($id)
+		{
+			$this->manageModel->hapusUser($id);
+			$this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">berhasil di hapus</div>');
+			redirect('ManageUser');
+		}
+
+		public function detail($id)
+		{
+			$data['judul'] 		= 'Administrator';
+			$data['user']  		= $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+			$data['pegawai'] 	= $this->manageModel->getUserById($id);
+
+			$this->load->view('template/header', $data);
+			$this->load->view('template/sidebar1');
+			$this->load->view('template/topbar1', $data);
+			$this->load->view('manage/detail', $data);
+			$this->load->view('template/footer');
+			$this->session->set_flashdata('massage', '<div class="alert alert-danger" role="alert">gagal di tambahkan</div>');
 		}
 	}

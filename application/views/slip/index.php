@@ -1,215 +1,153 @@
 	<!-- Begin Page Content -->
 	<div class="container-fluid">
-		<!-- section insert -->
-		<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<?= $this->session->flashdata('massage'); ?>
-			<h1 class="h3 mb-0 text-gray-800">Welcome</h1>
-
-			<!-- Button trigger modal -->
-            <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-success btn-icon-split shadow-sm" data-toggle="modal" data-target="#exampleModalCenter">
-				<span class="icon text-white-50">
-					<i class="fas fa-plus"></i>
-				</span>
-				<span class="text">
-					Add Item
-				</span>
-			</button>
-		</div>
+		<!-- section insert -->
 		
-	
+		<!-- Modal -->
+		<div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+				<div class="modal-content border-left-success">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalCenterTitle">Form Data Kariawan</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body ">
 
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalCenterTitle">Form Data Kariawan</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			</button>
+						<!-- section form modal -->
+						<form method="post" action="<?= base_url('Slip/insert'); ?>">
+							<div class="form-row">
+								<!-- <input type="hidden" name="id" value=""> -->
+								<div class="form-group col-md-6">
+									<label for="nama">Nama</label>
+									<input type="text" class="form-control" id="nama" name="nama">
+									<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
+								</div>
+								<div class="form-group col-md-6">
+									<label for="username">Username</label>
+									<input type="text" class="form-control" id="username" name="username">
+									<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
+								</div>
+							</div>
+							<div class="form-row">
+								<!-- <input type="hidden" name="id" value=""> -->
+								<div class="form-group col-md-6">
+									<label for="nip">NIP</label>
+									<input type="text" class="form-control" id="nip" name="nip">
+									<?= form_error('nip', '<small class="text-danger pl-3">', '</small>'); ?>
+								</div>
+								<div class="form-group col-md-6">
+									<label for="golongan">Golongan</label>
+									<input type="hidden" name="role" value="Pegawai">
+									<input type="text" class="form-control" id="golongan" name="golongan">
+									<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="gaji">Gaji</label>
+								<input type="number" class="form-control" id="gaji" name="gaji">
+								<?= form_error('gaji', '<small class="text-danger pl-3">', '</small>'); ?>
+							</div>
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="text" class="form-control" id="password" name="password">
+								<?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+							</div>
+							<!-- <div class="form-group"> -->
+							<!-- <label for="validate">Kode Validasi Gaji</label> -->
+							<!-- <div class="form-row"> -->
+							<!-- <input type="hidden" name="id" value=""> -->
+							<!-- <div class="form-group col-auto form-inline "> -->
+							<!-- <input type="text" class="form-control mr-sm-2" id="validate" name="validate" value=""> -->
+							<!-- <a id="tombol" class="btn btn-primary" href="">Generate</a> -->
+							<!--  -->
+							<!-- </div> -->
+							<!-- </div> -->
+							<!-- </div> -->
+
+							<!--end form modal -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="submit" class="text-white btn btn-primary">Save</button>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+
 		</div>
-		<div class="modal-body">
+		<div class="container-fluid">
 
-		<!-- section form modal -->
-	<form  method="post" action="">
-	<div class="form-row">
-		<div class="form-group col-md-6">
-			<label name="no" for="no">No</label>
-			<input type="text" class="form-control" name="no" id="no" placeholder="Nomer">
-			<?= form_error('no','<small class="text-danger pl-3">', '</small>'); ?>
+			<!-- DataTales -->
+			<div class="card shadow mb-4 border-left-success">
+				<div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
+					<h6 class="m-0 font-weight-bold text-primary">Slip Gaji</h6>
+					<!-- Button trigger modal -->
+					<button type="button" class="d-none d-sm-inline-block btn btn-sm btn-success btn-icon-split shadow-sm" data-toggle="modal" data-target="#exampleModalCenter">
+						<span class="icon text-white-50">
+							<i class="fas fa-plus"></i>
+						</span>
+						<span class="text">
+							Add Item
+						</span>
+					</button>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<!-- id="dataTable" -->
+						<table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>Nip</th>
+									<th>Nama</th>
+									<th>Golongan</th>
+									<th>Gaji</th>
+									<th>Username</th>
+									<th>Password</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<!-- <tfoot>
+								<tr>
+									<th>No</th>
+									<th>Nip</th>
+									<th>Nama</th>
+									<th>Golongan</th>
+									<th>Gaji</th>
+									<th>Username</th>
+									<th>Password</th>
+									<th>Action</th>
+								</tr>
+							</tfoot> -->
+							<tbody>
+								<?php $i = 1; ?>
+								<?php foreach ($karyawan as $k) : ?>
+									<tr>
+										<th scope="row"><?= $i; ?></th>
+										<td><?= $k['nip']; ?></td>
+										<td><?= $k['nama']; ?></td>
+										<td><?= $k['golongan']; ?></td>
+										<td>Rp.<?= $k['gaji']; ?></td>
+										<td><?= $k['username']; ?></td>
+										<td> <?= $k['password']; ?></td>
+										<td>
+											<a href="<?= base_url(); ?>Slip/detail/<?= $k['id']; ?>" class="badge badge-success">Detail</a>&nbsp; |&nbsp;
+											<a href="<?= base_url(); ?>Slip/update/<?= $k['id']; ?>" class="badge badge-primary">Edit</a>&nbsp; |&nbsp;
+											<a href="<?= base_url(); ?>Slip/delete/<?= $k['id']; ?>" class="badge badge-danger">Hapus</a>
+										</td>
+									</tr>
+									<?php $i++; ?>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
 		</div>
-		
-		<div class="form-group col-md-6">
-			<label name="bagian" for="bagian">Bagian</label>
-				<select name="bagian" id="bagian" class="form-control">
-					<option selected>Superfasior</option>
-					<option>Manager</option>
-					<option>Marketing</option>
-					<option>Sales</option>
-					<option>Analys</option>
-					<option>Programer</option>
-				</select>
-				<?= form_error('bagian','<small class="text-danger pl-3">', '</small>'); ?>
-		</div>
+		<!-- /.container-fluid -->
 	</div>
-
-	<div class="form-row">
-		<div class="form-group col-md-6">
-			<label name="nip" for="nip">Nip</label>
-			<input type="text" class="form-control" name="nip" id="nip" placeholder="Nip">
-			<?= form_error('nip','<small class="text-danger pl-3">', '</small>'); ?>
-
-		</div>
-		<div class="form-group col-md-6">
-			<label name="golongan" for="golongan">Golongan</label>
-				<select name="golongan" id="golongan" class="form-control">
-					<option selected>B1</option>
-					<option>B2r</option>
-					<option>B3</option>
-					<option>B4</option>
-					<option>B5</option>
-					<option>B6</option>
-				</select>
-				<?= form_error('golongan','<small class="text-danger pl-3">', '</small>'); ?>
-		</div>
-	</div>
-
-	<div class="form-row">
-		<div class="form-group col-md-6">
-		<label name="nama" for="nama">Nama</label>
-		<input type="text" class="form-control" name="nama" id="nama" placeholder="Nama">
-		<?= form_error('nama','<small class="text-danger pl-3">', '</small>'); ?>
-		</div>
-		<div class="form-group col-md-6">
-		<label name="uang" for="uang">Rp.</label>
-		<input type="text" class="form-control" name="uang" id="uang" placeholder="Rp.">
-		<?= form_error('uang','<small class="text-danger pl-3">', '</small>'); ?>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="gaji" name="gaji">Gaji untuk Bulanan</label>
-		<input type="text" class="form-control" name="gaji" id="gaji" placeholder="Rp. ">
-		<?= form_error('gaji','<small class="text-danger pl-3">', '</small>'); ?>
-	</div>
-	
-	<!-- section potongan -->
-		<h5 class="text-center">Potongan Potongan</h5>
-	<hr class="sidebar-divider my-0">
-	<div class="form-group mt-1">
-		<label for="iuran" name="iuran">Iuran Kopri</label>
-		<input type="text" class="form-control" name="iuran" id="iuran" placeholder="Rp. ">
-		<?= form_error('iuran','<small class="text-danger pl-3">', '</small>'); ?>
-	</div>
-	<div class="form-group">
-		<label for="simpan" name="simpan">Simpanan Koperasi / Bantuan Kemalangan</label>
-		<input type="text" class="form-control" name="simpan" id="simpan" placeholder="Rp. ">
-		<?= form_error('simpan','<small class="text-danger pl-3">', '</small>'); ?>
-	</div>
-	<div class="form-group">
-		<label for="darma" name="darma">Dharma Wanita</label>
-		<input type="text" class="form-control" name="darma" id="darma" placeholder="Rp. ">
-		<?= form_error('darma','<small class="text-danger pl-3">', '</small>'); ?>
-	</div>
-	<div class="form-group">
-		<label for="asuransi" name="asuransi">Asuransi</label>
-		<input type="text" class="form-control" name="asuransi" id="asuransi" placeholder="Rp. ">
-		<?= form_error('asuransi','<small class="text-danger pl-3">', '</small>'); ?>
-	</div>
-	<div class="form-group">
-		<label for="bank" name="bank">Bank Ke</label>
-		<input type="text" class="form-control" name="bank" id="bank" placeholder="Nomor ">
-		<?= form_error('bank','<small class="text-danger pl-3">', '</small>'); ?>
-	</div>
-	<div class="form-group">
-		<label for="kpn" name="kpn">KPN Ke</label>
-		<input type="text" class="form-control" name="kpn" id="kpn" placeholder="Nomor ">
-		<?= form_error('kpn','<small class="text-danger pl-3">', '</small>'); ?>
-	</div>
-	<div class="form-group">
-		<label for="potong" name="potong">Jumlah Potongan</label>
-		<input type="text" class="form-control" name="potong" id="potong" placeholder="Rp. ">
-		<?= form_error('potong','<small class="text-danger pl-3">', '</small>'); ?>
-	</div>
-	<hr class="sidebar-divider my-2">
-
-	<!-- sevtion keseluruhan -->
-	<div class="form-group">
-		<label for="seluruh" name="seluruh">Jumlah Penerimaan Bersih</label>
-		<input type="text" class="form-control" name="seluruh" id="seluruh" placeholder="Nomor ">
-		<?= form_error('seluruh','<small class="text-danger pl-3">', '</small>'); ?>
-	</div>
-
-	<div class="form-group mr-sm-2 pr-2 mb-2">
-    	<label for="digital" name="digital">Digital Signatur</label>
-    	<input type="text" class="form-control" name="digatal" id="digital" placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxx">
-		<?= form_error('digital','<small class="text-danger pl-3">', '</small>'); ?>
-	</div>
-	<a href="<?=base_url('Slip/insert'); ?>" class="btn btn-success mb-1">Enkripsi</a>
-</form>
-	
-<!-- end form modal -->
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<a href="" class="btn btn-success">Save</a>
-		</div>
-		</div>
-	</div>
-	</div>
-        
-	</div>
-	<div class="container-fluid">
-
-<!-- DataTales -->
-<div class="card shadow mb-4">
-<div class="card-header py-3">
-	<h6 class="m-0 font-weight-bold text-primary">Slip Gaji</h6>
-</div>
-<div class="card-body">
-  <div class="table-responsive">
-	  <!-- id="dataTable" -->
-	<table class="table table-bordered " id="dataTable"  width="100%" cellspacing="0">
-	  <thead>
-			<tr>
-				<th>No</th>
-				<th>Nip</th>
-				<th>Nama</th>
-				<th>Gaji</th>
-				<th>Action</th>	
-			</tr>
-		</thead>
-		<tfoot>
-			<tr>
-				<th>No</th>
-				<th>Nip</th>
-				<th>Nama</th>
-				<th>Gaji</th>
-				<th>Action</th>
-			</tr>
-	  </tfoot>
-	  <tbody>
-	  <?php $i=1; ?>
-<?php foreach ($karyawan as $k):?>
-<tr>
-<th scope="row"><?= $i; ?></th>
-<td><?= $k['nip']; ?></td>
-<td><?= $k['nama']; ?></td>
-<td>Rp.<?= $k['rp']; ?></td>
-<td>
-	<a href="#" class="badge badge-primary ">Edit</a>&nbsp; |&nbsp;
-	<a href="<?=base_url(); ?>/Slip/delete/<?= $k['no']; ?>" class="badge badge-danger">Hapus</a>
-</td>
-</tr>
-<?php $i++; ?>
-<?php endforeach; ?>
-	  </tbody>
-	</table>
-  </div>
-</div>
-</div>
-
-</div>
-<!-- /.container-fluid -->
-</div>
-<!-- End of Main Content -->
-
-
+	<!-- End of Main Content -->

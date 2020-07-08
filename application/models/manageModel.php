@@ -21,31 +21,33 @@ class manageModel extends CI_model
 			'nama' 		=> htmlspecialchars($this->input->post('nama', true)),
 			'username' 	=> htmlspecialchars($this->input->post('username', true)),
 			'password' 	=> htmlspecialchars($this->input->post('password', true)),
-			'role' 		=> htmlspecialchars($this->input->post('bagian', true)) 
+			'role' 		=> htmlspecialchars($this->input->post('bagian', true))
 		];
 
 		$this->db->insert('user', $data);
 	}
 
 
-	public function hapusUser($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete('user');
-	}
 
-	
+
 	public function ubahUser()
 	{
-		
 		$data = [
 			'nama' 		=> htmlspecialchars($this->input->post('nama', true)),
 			'username' 	=> htmlspecialchars($this->input->post('username', true)),
 			'password' 	=> htmlspecialchars($this->input->post('password', true)),
-			'role' 		=> htmlspecialchars($this->input->post('bagian', true)) 
+			'role' 		=> htmlspecialchars($this->input->post('bagian', true))
 		];
 
 		$this->db->where('id', $this->input->post('id'));
 		$this->db->update('user', $data);
+	}
+
+
+
+	public function hapusUser($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete('user');
 	}
 }

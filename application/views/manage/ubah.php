@@ -20,28 +20,31 @@
 									<input type="hidden" name="id" value="<?= $pegawai['id']; ?>">
 									<div class="form-group col-md-6">
 										<label for="nama">Nama</label>
-										<input type="text" class="form-control" id="nama" name="nama">
+										<input type="text" class="form-control" id="nama" name="nama" value="<?= $pegawai['nama']; ?>">
 										<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
 									</div>
 									<div class="form-group col-md-6">
 										<label for="username">Username</label>
-										<input type="text" class="form-control" id="username" name="username">
+										<input type="text" class="form-control" id="username" name="username" value="<?= $pegawai['username']; ?>">
 										<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="bagian">Bagian Bidang</label>
-									<input type="text" class="form-control" id="bagian" name="bagian">
+									<select class="form-control" id="bagian" name="bagian" aria-selected="<?= $pegawai['role']; ?>">
+										<option>Admin</option>
+										<option>Keuangan</option>
+									</select>
 									<?= form_error('bagian', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
 									<label for="password">Password</label>
-									<input type="password" class="form-control" id="password" name="password">
+									<input type="text" class="form-control" id="password" name="password" value="<?= $pegawai['password']; ?>">
 									<?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
 									<label for="repassword">RePassword</label>
-									<input type="password" class="form-control" id="repassword" name="repassword">
+									<input type="text" class="form-control" id="repassword" name="repassword" value="<?= $pegawai['password']; ?>">
 									<?= form_error('repassword', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="row">

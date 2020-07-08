@@ -36,15 +36,15 @@ class Auth extends CI_Controller
 							'username' => $user['username']
 						];
 						switch ($user['role']) {
-							case ($user['role'] == 'admin'):
+							case ($user['role'] == 'Admin'):
 								$this->session->set_userdata($data);
 								redirect('Administrator');
 								break;
-							case ($user['role'] == 'keuangan'):
+							case ($user['role'] == 'Keuangan'):
 								$this->session->set_userdata($data);
 								redirect('Keuangan');
 								break;
-							case ($user['role'] == 'pegawai'):
+							case ($user['role'] == 'Pegawai'):
 								$this->session->set_userdata($data);
 								redirect('Pegawai');
 								break;
@@ -65,6 +65,38 @@ class Auth extends CI_Controller
 				$this->session->set_flashdata('massage', '<div class="alert alert-danger" role="alert">Wrong Username! </div>');
 				redirect('Auth');
 			}
+		}
+	}
+
+	public function detail($id)
+	{
+		$data['judul'] 		= 'Slip Gaji';
+		$data['user']  		= $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
+		$user = $this->db->get_where('user', ['id' => $id])->row_array();
+		// var_dump($user);
+		switch ($user['role']) {
+			case ($user['role'] === 'Admin'):
+				$this->load->view('template/header', $data);
+				$this->load->view('template/sidebar1');
+				$this->load->view('template/topbar1', $data);
+				$this->load->view('auth/detail', $data);
+				$this->load->view('template/footer');
+				break;
+			case ($user['role'] === 'Keuangan'):
+				$this->load->view('template/header', $data);
+				$this->load->view('template/sidebar2');
+				$this->load->view('template/topbar2', $data);
+				$this->load->view('auth/detail', $data);
+				$this->load->view('template/footer');
+				break;
+			default:
+				$this->load->view('template/header', $data);
+				$this->load->view('template/sidebar3');
+				$this->load->view('template/topbar3', $data);
+				$this->load->view('auth/detail', $data);
+				$this->load->view('template/footer');
+				break;
 		}
 	}
 
